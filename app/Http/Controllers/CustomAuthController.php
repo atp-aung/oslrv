@@ -21,8 +21,8 @@ class CustomAuthController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials) && auth()->user()->is_admin) {
             Session::forget('cart');
-            //return "Login by admin";
-            return view('admin.dashboard');
+            return "Login by admin";
+            //return view('admin.dashboard');
         }
         if (Auth::attempt($credentials) && auth()->user()->is_admin==false) {
             Session::forget('cart');
