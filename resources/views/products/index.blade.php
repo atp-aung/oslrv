@@ -35,7 +35,7 @@ href="{{ url("/products-in-cart/clear") }}">
 @foreach($products as $product)
 <li>product: {{ $product['product_name'] }} ---- price: {{ $product['price'] }}</li>
 <a
-href="{{ url("/products-in-cart/add/$product->id}") }}">
+href="{{ url("/products-in-cart/add/$product->id")}}">
 Add to Cart &raquo;
 </a>
 <br><br>

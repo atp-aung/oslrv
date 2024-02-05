@@ -23,4 +23,9 @@ class Order extends Model
         // Set default values
         $this->attributes['deli_status'] = false;
     }
+
+    public function orderItems()
+{
+return $this->hasMany('App\Models\OrderItem');
+}
 }

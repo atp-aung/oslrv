@@ -18,9 +18,8 @@
 </div>
 @endif -->
 
-
 <h1>Login Form</h1>
-<form method="POST">
+<form action="{{url("/login-action")}}" method="POST">
                             @csrf
                             <div>
                                 <input type="text" placeholder="Email" name="email"

@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use Hash;
 use Session;
 use App\Models\User;
+use App\Models\Product;
+use App\Models\Order;
 use Illuminate\Support\Facades\Auth;
 
 class CustomAuthController extends Controller
@@ -21,8 +23,11 @@ class CustomAuthController extends Controller
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials) && auth()->user()->is_admin) {
             Session::forget('cart');
+            $products = Product::all();
             //return "Login by admin";
-            return view('admin.dashboard');
+            return view('admin.dashboard',[
+                'products' => $products
+                ]);
         }
         if (Auth::attempt($credentials) && auth()->user()->is_admin==false) {
             Session::forget('cart');
@@ -62,4 +67,59 @@ class CustomAuthController extends Controller
             'password' => Hash::make($data['password'])
         ]);
     }
+
+    public function productDelete($id)
+    {
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->route('dashboardSub');
+    }
+
+    public function productEdit($id)
+{
+    $product = Product::find($id);
+return view('admin.productEdit',[
+    'product' => $product
+    ]);
+}
+
+public function productUpdate($id)
+{    
+        $product = Product::find($id);
+        $product->product_name = request()->product_name;
+        $product->price = request()->price;
+        $product->update();
+
+    return redirect()->route('dashboardSub');
+}
+
+public function productAdd()
+{
+return view('admin.productAdd');
+}
+
+public function productCreate()
+{
+    $validator = validator(request()->all(), [
+        'product_name' => 'required',
+        'price' => 'required',
+        ]);
+        if($validator->fails()) {
+        return back()->withErrors($validator);
+        }
+        $product = new Product;
+        $product->product_name = request()->product_name;
+        $product->price = request()->price;
+        $product->save();
+        
+return redirect()->route('dashboardSub');
+}
+
+public function dashboardSub()
+{
+    $products = Product::All();
+return view('admin.dashboard',[
+    'products' => $products
+    ]);
+}
 }

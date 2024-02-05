@@ -18,37 +18,21 @@
         </div>
     </div>
 </div>
-<a
-href="{{route('products.add')}}">
-+Add Product
-</a>
-<br>
-<a
-href="{{route('dashboardSub')}}">
-Product Management
-</a>
-<br>
-<a
-href="{{route('orderMgmtView')}}">
-Order Management
-</a>
-<br>
-<h1>Product List</h1>
-<ul>
-@foreach($products as $product)
-<li>product: {{ $product['product_name'] }} ---- price: {{ $product['price'] }}
-    <br>
-<a
-href="{{route('products.delete', ['id' => $product->id])}}">
-Delete
-</a>
-<br>
-<a
-href="{{route('products.edit', ['id' => $product->id])}}">
-Edit
-</a>
-</li>
-<br><br>
-@endforeach
-</ul>
+<h1>Product edit form</h1>
+
+<div class="container">
+<form method="post">
+@csrf
+<div class="mb-3">
+<label>Product name</label>
+<input type="text" name="product_name" value="{{$product->product_name}}" class="form-control">
+</div>
+<div class="mb-3">
+<label>Price</label>
+<input type="number" name="price" value="{{$product->price}}" class="form-control">
+</div>
+<input type="submit" value="Update"
+class="btn btn-primary">
+</form>
+</div>
 @endsection

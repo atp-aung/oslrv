@@ -14,6 +14,7 @@
                     @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url("/login") }}">Login</a>
+                        <!-- <a class="nav-link" href="{{ route("loginn") }}">Login</a> -->
                     </li>
                     
                     @else

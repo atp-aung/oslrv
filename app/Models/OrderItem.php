@@ -16,4 +16,14 @@ class OrderItem extends Model
     {
         parent::__construct($attributes);        
     }
+
+    public function order()
+{
+return $this->belongsTo('App\Models\Order');
+}
+
+public function product()
+    {
+        return $this->belongsTo('App\Models\Product');
+    }
 }
