@@ -24,7 +24,7 @@ Order Management
         </li>
     @endforeach
 </ul>
-
+<div></div>
 @if($order->deli_status == 0)
         <form action="{{ route('statusChange',['id'=> $order->id]) }}" method="POST">
             @csrf
