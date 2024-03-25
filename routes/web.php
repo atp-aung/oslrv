@@ -8,7 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\OrderMgmtController;
-
+//cacaca
 /*
 |--------------------------------------------------------------------------
 | Web Routes
