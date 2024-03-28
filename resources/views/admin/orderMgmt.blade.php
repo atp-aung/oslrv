@@ -10,12 +10,15 @@ href="{{route('orderMgmtView')}}">
 Order Management
 </a>
 <br>
-<h1>Orders</h1>
+<h1 class="alert alert-primary">Orders</h1>
 <ul>
 @foreach($orders as $order)
-<li>Order ID: {{ $order->id }} ---- Customer Name: {{ $order->customer_name }} ---- Address: {{$order->address}} ---- delistatus: {{ $order->deli_status ? "done" : "not yet delivered" }}    
-
-<h2>Order Items</h2>
+<li class="card">
+<div class="card-body">    
+    <div class="alert alert-secondary">
+Order ID: {{ $order->id }} ---- Customer Name: {{ $order->customer_name }} ---- Address: {{$order->address}} ---- deli_status: {{ $order->deli_status ? "done" : "not yet delivered" }}    
+</div>
+<h3>Order Items</h3>
 <ul>
     @foreach ($order->orderItems as $item)
         <li>
@@ -29,15 +32,16 @@ Order Management
         <form action="{{ route('statusChange',['id'=> $order->id]) }}" method="POST">
             @csrf
             @method('PUT')
-            <button type="submit" name="deli_status" value=1>Mark as Delivered</button>
+            <button class="btn btn-warning" type="submit" name="deli_status" value=1>Mark as Delivered</button>
         </form>
     @elseif($order->deli_status == 1)
         <form action="{{ route('statusChange', ['id'=>$order->id]) }}" method="POST">
             @csrf
             @method('PUT')
-            <button type="submit" name="deli_status" value=0>Undo</button>
+            <button class="btn btn-info" type="submit" name="deli_status" value=0>Undo</button>
         </form>
     @endif
+</div>
 </li>
 <br>
 @endforeach

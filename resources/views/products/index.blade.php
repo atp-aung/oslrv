@@ -30,18 +30,22 @@ href="{{ url("/products-in-cart") }}">
 href="{{ url("/products-in-cart/clear") }}">
 &times; Clear Cart 
 </a>
-<h1>Product List</h1>
+<h1 class="alert alert-primary">Product List</h1>
 <ul>
 @foreach($products as $product)
-<li>product: {{ $product['product_name'] }} ---- price: {{ $product['price'] }}</li>
+<li class="card"> 
+    <div class="card-body">
+product: {{ $product['product_name'] }} ---- price: {{ $product['price'] }}
+<br>
 <a
 href="{{ url("/products-in-cart/add/$product->id")}}">
 Add to Cart &raquo;
 </a>
-<br><br>
+</div>
+</li>
+<br>
 @endforeach
 </ul>
-
 @endsection
 
 <!-- </body>

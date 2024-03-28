@@ -33,22 +33,26 @@ href="{{route('orderMgmtView')}}">
 Order Management
 </a>
 <br>
-<h1>Product List</h1>
-<ul>
+<h1 class="alert alert-primary">Product List</h1>
+<ul >
 @foreach($products as $product)
-<li>product: {{ $product['product_name'] }} ---- price: {{ $product['price'] }}
+<li class="card">
+    <div class="card-body">product: {{ $product['product_name'] }} ---- price: {{ $product['price'] }}
     <br>
-<a
-href="{{route('products.delete', ['id' => $product->id])}}">
-Delete
-</a>
-<br>
-<a
+
+    <a class="btn btn-warning"
 href="{{route('products.edit', ['id' => $product->id])}}">
 Edit
 </a>
+
+<a class="btn btn-danger"
+href="{{route('products.delete', ['id' => $product->id])}}">
+Delete
+</a>
+
+</div>
 </li>
-<br><br>
+<br>
 @endforeach
 </ul>
 @endsection
