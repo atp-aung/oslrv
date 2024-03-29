@@ -21,18 +21,17 @@
 <h1>Product edit form</h1>
 
 <div class="container">
-<form method="post">
-@csrf
-<div class="mb-3">
-<label>Product name</label>
-<input type="text" name="product_name" value="{{$product->product_name}}" class="form-control">
-</div>
-<div class="mb-3">
-<label>Price</label>
-<input type="number" name="price" value="{{$product->price}}" class="form-control">
-</div>
-<input type="submit" value="Update"
-class="btn btn-primary">
-</form>
+    <form method="post">
+        @csrf
+        <div class="mb-3">
+            <label>Product name</label>
+            <input type="text" name="product_name" value="{{$product->product_name}}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label>Price</label>
+            <input type="number" name="price" value="{{$product->price}}" class="form-control">
+        </div>
+        <input type="submit" value="Update" class="btn btn-primary">
+    </form>
 </div>
 @endsection
