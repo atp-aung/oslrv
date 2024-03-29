@@ -21,23 +21,30 @@
 </div>
 @endif -->
 
-<a
+<div class="card">
+    <div class="card-title">
+<a class="btn btn-primary"
 href="{{ url("/products-in-cart") }}">
 ({{$totalItems}}) items in Cart &raquo;
 </a>
-<br>
-<a
+
+<a class="btn btn-primary"
 href="{{ url("/products-in-cart/clear") }}">
 &times; Clear Cart 
 </a>
+</div>
+
 <h1 class="alert alert-primary">Product List</h1>
 <ul>
 @foreach($products as $product)
 <li class="card"> 
     <div class="card-body">
-product: {{ $product['product_name'] }} ---- price: {{ $product['price'] }}
+        <div class="alert alert-secondary">
+product: {{ $product['product_name'] }} 
 <br>
-<a
+price: {{ $product['price'] }}
+</div>
+<a class="btn btn-primary"
 href="{{ url("/products-in-cart/add/$product->id")}}">
 Add to Cart &raquo;
 </a>
@@ -46,6 +53,7 @@ Add to Cart &raquo;
 <br>
 @endforeach
 </ul>
+</div>
 @endsection
 
 <!-- </body>

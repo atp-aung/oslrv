@@ -7,7 +7,7 @@
 <body>
     <nav class="navbar navbar-light navbar-expand-lg mb-5" style="background-color: #e3f2fd;">
         <div class="container">
-            <a class="navbar-brand mr-auto" href="#">PositronX</a>
+            <!-- <a class="navbar-brand mr-auto" href="#">PositronX</a> -->
             
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">

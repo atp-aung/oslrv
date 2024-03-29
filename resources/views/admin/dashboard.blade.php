@@ -18,41 +18,47 @@
         </div>
     </div>
 </div>
-<a
+
+<div class="card">   
+    <div class="card-title"> 
+<a class="btn btn-secondary"
 href="{{route('products.add')}}">
 +Add Product
 </a>
-<br>
-<a
+
+<a class="btn btn-secondary"
 href="{{route('dashboardSub')}}">
 Product Management
 </a>
-<br>
-<a
+
+<a class="btn btn-secondary"
 href="{{route('orderMgmtView')}}">
 Order Management
 </a>
-<br>
+</div>
+
 <h1 class="alert alert-primary">Product List</h1>
+
 <ul >
 @foreach($products as $product)
-<li class="card">
-    <div class="card-body">product: {{ $product['product_name'] }} ---- price: {{ $product['price'] }}
-    <br>
+<li class="card">    
+    <div class="card-body">
+       <div class="alert alert-secondary">    
+        product: {{ $product['product_name'] }} ---- price: {{ $product['price'] }}
+        </div>
+        <a class="btn btn-warning"
+        href="{{route('products.edit', ['id' => $product->id])}}">
+        Edit
+        </a>
 
-    <a class="btn btn-warning"
-href="{{route('products.edit', ['id' => $product->id])}}">
-Edit
-</a>
-
-<a class="btn btn-danger"
-href="{{route('products.delete', ['id' => $product->id])}}">
-Delete
-</a>
-
-</div>
+        <a class="btn btn-danger"
+        href="{{route('products.delete', ['id' => $product->id])}}">
+        Delete
+        </a>
+    </div>
 </li>
 <br>
 @endforeach
 </ul>
+</div>
 @endsection
