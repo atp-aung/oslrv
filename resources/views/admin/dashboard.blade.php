@@ -16,6 +16,7 @@
                 @endif
             </div>
         </div>
+        <br>
     </div>
 </div>
 
@@ -24,11 +25,11 @@
         <a class="btn btn-secondary" href="{{route('products.add')}}">
             +Add Product
         </a>
-
+        <!--
         <a class="btn btn-secondary" href="{{route('dashboardSub')}}">
             Product Management
         </a>
-
+        -->
         <a class="btn btn-secondary" href="{{route('orderMgmtView')}}">
             Order Management
         </a>
@@ -41,7 +42,9 @@
         <li class="card">
             <div class="card-body">
                 <div class="alert alert-secondary">
-                    product: {{ $product['product_name'] }} ---- price: {{ $product['price'] }}
+                    product: {{ $product['product_name'] }}
+                    <br>
+                    price: {{ $product['price'] }}
                 </div>
                 <a class="btn btn-warning" href="{{route('products.edit', ['id' => $product->id])}}">
                     Edit

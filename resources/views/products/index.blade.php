@@ -23,36 +23,33 @@
 
 <div class="card">
     <div class="card-title">
-<a class="btn btn-primary"
-href="{{ url("/products-in-cart") }}">
-({{$totalItems}}) items in Cart &raquo;
-</a>
+        <a class="btn btn-primary" href="{{ url("/products-in-cart") }}">
+            ({{$totalItems}}) items in Cart &raquo;
+        </a>
 
-<a class="btn btn-primary"
-href="{{ url("/products-in-cart/clear") }}">
-&times; Clear Cart 
-</a>
-</div>
+        <a class="btn btn-primary" href="{{ url("/products-in-cart/clear") }}">
+            &times; Clear Cart
+        </a>
+    </div>
 
-<h1 class="alert alert-primary">Product List</h1>
-<ul>
-@foreach($products as $product)
-<li class="card"> 
-    <div class="card-body">
-        <div class="alert alert-secondary">
-product: {{ $product['product_name'] }} 
-<br>
-price: {{ $product['price'] }}
-</div>
-<a class="btn btn-primary"
-href="{{ url("/products-in-cart/add/$product->id")}}">
-Add to Cart &raquo;
-</a>
-</div>
-</li>
-<br>
-@endforeach
-</ul>
+    <h1 class="alert alert-primary">Product List</h1>
+    <ul>
+        @foreach($products as $product)
+        <li class="card">
+            <div class="card-body">
+                <div class="alert alert-secondary">
+                    product: {{ $product['product_name'] }}
+                    <br>
+                    price: {{ $product['price'] }}
+                </div>
+                <a class="btn btn-primary" href="{{ url("/products-in-cart/add/$product->id")}}">
+                    Add to Cart &raquo;
+                </a>
+            </div>
+        </li>
+        <br>
+        @endforeach
+    </ul>
 </div>
 @endsection
 

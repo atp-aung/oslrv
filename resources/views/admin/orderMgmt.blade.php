@@ -5,9 +5,9 @@
         <a class="btn btn-secondary" href="{{route('dashboardSub')}}">
             Product Management
         </a>
-        <a class="btn btn-secondary" href="{{route('orderMgmtView')}}">
+        <!--<a class="btn btn-secondary" href="{{route('orderMgmtView')}}">
             Order Management
-        </a>
+        </a>-->
     </div>
 
     <h1 class="alert alert-primary">Orders</h1>
