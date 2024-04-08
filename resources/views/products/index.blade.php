@@ -21,16 +21,17 @@
 </div>
 @endif -->
 
-<div class="card">
-    <div class="card-title">
-        <a class="btn btn-primary" href="{{ url("/products-in-cart") }}">
-            ({{$totalItems}}) items in Cart &raquo;
-        </a>
+<div class="alert alert-secondary">
 
-        <a class="btn btn-primary" href="{{ url("/products-in-cart/clear") }}">
-            &times; Clear Cart
-        </a>
-    </div>
+    <a class="btn btn-secondary" href="{{ url("/products-in-cart") }}">
+        ({{$totalItems}}) items in Cart &raquo;
+    </a>
+    <a class="btn btn-secondary" href="{{ url("/products-in-cart/clear") }}">
+        &times; Clear Cart
+    </a>
+</div>
+
+<div class="card">
 
     <h1 class="alert alert-primary">Product List</h1>
     <ul>
