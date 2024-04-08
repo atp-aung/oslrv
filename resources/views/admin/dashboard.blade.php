@@ -19,24 +19,21 @@
         <br>
     </div>
 </div>
-
-<div class="card">
-    <div class="card-title">
-        <a class="btn btn-secondary" href="{{route('products.add')}}">
-            +Add Product
-        </a>
-        <!--
+<div class="alert alert-secondary">
+    <a class="btn btn-secondary" href="{{route('products.add')}}">
+        +Add Product
+    </a>
+    <!--
         <a class="btn btn-secondary" href="{{route('dashboardSub')}}">
             Product Management
         </a>
         -->
-        <a class="btn btn-secondary" href="{{route('orderMgmtView')}}">
-            Order Management
-        </a>
-    </div>
-
-    <h1 class="alert alert-primary">Product List</h1>
-
+    <a class="btn btn-secondary" href="{{route('orderMgmtView')}}">
+        Order Management
+    </a>
+</div>
+<div class="card">
+    <h1 class="alert alert-primary"> Product List </h1>
     <ul>
         @foreach($products as $product)
         <li class="card">

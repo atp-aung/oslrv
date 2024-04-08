@@ -1,15 +1,15 @@
 @extends('layouts.custom')
 @section('content')
-<div class="card">
-    <div class="card-title">
-        <a class="btn btn-secondary" href="{{route('dashboardSub')}}">
-            Product Management
-        </a>
-        <!--<a class="btn btn-secondary" href="{{route('orderMgmtView')}}">
+
+<div class="alert alert-secondary">
+    <a class="btn btn-secondary" href="{{route('dashboardSub')}}">
+        Product Management
+    </a>
+    <!--<a class="btn btn-secondary" href="{{route('orderMgmtView')}}">
             Order Management
         </a>-->
-    </div>
-
+</div>
+<div class="card">
     <h1 class="alert alert-primary">Orders</h1>
     <ul>
         @foreach($orders as $order)
