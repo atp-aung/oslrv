@@ -25,20 +25,20 @@ class CustomAuthController extends Controller
             Session::forget('cart');
             $products = Product::all();
             //return "Login by admin";
-            return view('admin.dashboard',[
+            return view('admin.dashboard', [
                 'products' => $products
-                ]);
+            ]);
         }
-        if (Auth::attempt($credentials) && auth()->user()->is_admin==false) {
+        if (Auth::attempt($credentials) && auth()->user()->is_admin == false) {
             Session::forget('cart');
-            return redirect('/');            
+            return redirect('/');
         }
         return view('auth.login');
     }
 
     public function logoutAction()
     {
-        Session::flush();        
+        Session::flush();
         Auth::logout();
         return Redirect('/');
     }
@@ -76,50 +76,50 @@ class CustomAuthController extends Controller
     }
 
     public function productEdit($id)
-{
-    $product = Product::find($id);
-return view('admin.productEdit',[
-    'product' => $product
-    ]);
-}
+    {
+        $product = Product::find($id);
+        return view('admin.productEdit', [
+            'product' => $product
+        ]);
+    }
 
-public function productUpdate($id)
-{    
+    public function productUpdate($id)
+    {
         $product = Product::find($id);
         $product->product_name = request()->product_name;
         $product->price = request()->price;
         $product->update();
 
-    return redirect()->route('dashboardSub');
-}
+        return redirect()->route('dashboardSub');
+    }
 
-public function productAdd()
-{
-return view('admin.productAdd');
-}
+    public function productAdd()
+    {
+        return view('admin.productAdd');
+    }
 
-public function productCreate()
-{
-    $validator = validator(request()->all(), [
-        'product_name' => 'required',
-        'price' => 'required',
+    public function productCreate()
+    {
+        $validator = validator(request()->all(), [
+            'product_name' => 'required',
+            'price' => 'required',
         ]);
-        if($validator->fails()) {
-        return back()->withErrors($validator);
+        if ($validator->fails()) {
+            return back()->withErrors($validator);
         }
         $product = new Product;
         $product->product_name = request()->product_name;
         $product->price = request()->price;
         $product->save();
-        
-return redirect()->route('dashboardSub');
-}
 
-public function dashboardSub()
-{
-    $products = Product::All();
-return view('admin.dashboard',[
-    'products' => $products
-    ]);
-}
+        return redirect()->route('dashboardSub');
+    }
+
+    public function dashboardSub()
+    {
+        $products = Product::All();
+        return view('admin.dashboard', [
+            'products' => $products
+        ]);
+    }
 }
